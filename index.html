@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五月雨 Samidare | 日本職人美學 × 跨國落地顧問</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p6O3b9XKkqKjv0b1X1YQn0qjKk5Qq3+Y1VYx1fJf6eK3P1lF2v1q3Gg1Y2v3h4G5t6H7J8K9L0M1N2O3P4Q5R6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        :root {
+            --color-primary: #FCDDDA;
+            --color-secondary: #3D2636;
+            --color-accent: #54BD7F;
+            --color-neutral: #FBFBFB;
+            --color-dark: #211F21;
+            --color-muted: rgba(33, 31, 33, 0.72);
+            --color-border: rgba(61, 38, 54, 0.15);
+            --color-card: rgba(252, 221, 218, 0.6);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Serif TC', sans-serif;
+            background-color: var(--color-neutral);
+            color: var(--color-dark);
+            overflow-x: hidden;
+        }
+
+        .text-dark { color: var(--color-dark) !important; }
+        .text-secondary { color: var(--color-secondary) !important; }
+        .text-accent { color: var(--color-accent) !important; }
+        .text-muted { color: var(--color-muted) !important; }
+        .bg-neutral { background-color: var(--color-neutral) !important; }
+        .bg-primary-soft { background-color: rgba(252, 221, 218, 0.24) !important; }
+        .bg-secondary { background-color: var(--color-secondary) !important; }
+        .bg-accent { background-color: var(--color-accent) !important; }
+        .border-secondary { border-color: var(--color-border) !important; }
+        .shadow-secondary { box-shadow: 0 20px 40px -15px rgba(61, 38, 54, 0.08) !important; }
+        .text-slate-900 { color: var(--color-secondary) !important; }
+        .text-slate-800 { color: var(--color-dark) !important; }
+        .text-slate-700 { color: rgba(33, 31, 33, 0.85) !important; }
+        .text-slate-600 { color: var(--color-muted) !important; }
+        .text-slate-500 { color: rgba(33, 31, 33, 0.72) !important; }
+        .text-slate-400 { color: rgba(33, 31, 33, 0.55) !important; }
+        .bg-slate-50 { background-color: rgba(252, 221, 218, 0.18) !important; }
+        .bg-slate-100 { background-color: rgba(252, 221, 218, 0.35) !important; }
+        .bg-white { background-color: rgba(251, 251, 251, 1) !important; }
+        .bg-white\/90 { background-color: rgba(251, 251, 251, 0.9) !important; }
+        .border-slate-200\/80 { border-color: rgba(61, 38, 54, 0.16) !important; }
+        .border-slate-200\/40 { border-color: rgba(61, 38, 54, 0.08) !important; }
+        .shadow-slate-100\/40 { box-shadow: 0 10px 30px -15px rgba(61, 38, 54, 0.08) !important; }
+        .border-slate-200\/60 { border-color: rgba(61, 38, 54, 0.12) !important; }
+        .bg-slate-900 { background-color: var(--color-secondary) !important; }
+        .hover\:bg-slate-800:hover { background-color: rgba(61, 38, 54, 0.88) !important; }
+        .hover\:text-blue-600:hover { color: var(--color-secondary) !important; }
+        .hover\:border-blue-500:hover { border-color: rgba(61, 38, 54, 0.45) !important; }
+        .glass-card {
+            background: var(--color-card);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--color-border);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-6px);
+            background: rgba(252, 221, 218, 0.82);
+            border-color: rgba(61, 38, 54, 0.2);
+            box-shadow: 0 20px 40px -15px rgba(61, 38, 54, 0.08);
+        }
+
+        /* 漸層文字與邊框 */
+        .text-gradient {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .border-gradient {
+            border: 1px solid transparent;
+            background-image: linear-gradient(rgba(252, 221, 218, 0.6), rgba(252, 221, 218, 0.6)), linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+
+        /* 打字機游標動畫 */
+        .cursor-blink::after {
+            content: '|';
+            animation: blink 0.8s infinite;
+            color: var(--color-secondary);
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        /* 背景微光流動特效 */
+        .bg-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(252, 221, 218, 0.18) 0%, rgba(61, 38, 54, 0.12) 50%, rgba(255, 255, 255, 0) 100%);
+            filter: blur(40px);
+            z-index: 0;
+            pointer-events: none;
+            animation: floatGlow 12s infinite alternate ease-in-out;
+        }
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 30px) scale(1.1); }
+        }
+    </style>
+</head>
+<body class="text-dark antialiased selection:bg-primary/15 selection:text-secondary">
+
+    <canvas id="cyberBackground" class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none opacity-70"></canvas>
+
+    <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-neutral/80 border-b border-secondary/15 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#hero" class="flex items-center space-x-3 tracking-wider">
+                <span class="text-xl font-bold font-serif text-slate-900">五月雨</span>
+                <span class="text-xs px-2 py-0.5 rounded-full border border-primary-soft bg-primary-soft text-secondary font-sans font-medium">Samidare</span>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-10 font-medium text-sm text-slate-600">
+                <a href="#hero" class="hover:text-secondary transition-colors">首頁</a>
+                <a href="#about" class="hover:text-secondary transition-colors">關於我</a>
+                <a href="#services" class="hover:text-secondary transition-colors">服務項目</a>
+                <a href="#cta" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-secondary text-white text-xs tracking-wide hover:bg-secondary/90 transition-all duration-300 shadow-sm shadow-secondary hover:shadow-secondary">
+                    預約諮詢
+                </a>
+            </div>
+
+            <button id="menuBtn" class="md:hidden text-slate-700 focus:outline-none" aria-label="Toggle Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden absolute top-20 left-0 w-full bg-neutral/95 backdrop-blur-lg border-b border-secondary/20 shadow-xl flex flex-col p-6 space-y-4 font-medium transition-all duration-300">
+            <a href="#hero" class="mobile-link py-2 text-secondary hover:text-secondary/90">首頁</a>
+            <a href="#about" class="mobile-link py-2 text-secondary hover:text-secondary/90">關於我</a>
+            <a href="#services" class="mobile-link py-2 text-secondary hover:text-secondary/90">服務項目</a>
+            <a href="#cta" class="mobile-link py-3 text-center rounded-xl bg-secondary text-white text-sm">預約諮詢</a>
+        </div>
+    </nav>
+
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
+        <div class="bg-glow top-1/4 left-1/4"></div>
+        <div class="bg-glow bottom-1/4 right-1/4" style="animation-delay: -6s;"></div>
+        
+        <div class="max-w-4xl mx-auto px-6 text-center z-10">
+            <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-primary-soft border border-primary-soft text-xs font-semibold text-secondary mb-8 animate-fade-in">
+                <span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                <span class="tracking-widest">PREMIUM CONSULTANT & ARTIST</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-bold font-serif text-slate-900 tracking-wide leading-tight min-h-[7rem] md:min-h-[9rem] flex items-center justify-center">
+                <span id="typewriter" class="cursor-blink"></span>
+            </h1>
+            
+            <p class="mt-6 text-base md:text-lg text-muted max-w-xl mx-auto font-light tracking-widest leading-relaxed">
+                融合日本職人精神與現代自媒體的跨界美學家
+            </p>
+            
+            <div class="mt-12">
+                <a href="#cta" id="heroBtn" class="border-gradient inline-flex items-center justify-center px-8 py-4 rounded-full text-secondary font-semibold tracking-wider text-sm transition-all duration-500 shadow-md shadow-secondary hover:shadow-accent/20 group">
+                    <span id="heroBtnText">開啟策略合作藍圖</span>
+                    <svg class="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-40">
+            <div class="w-5 h-8 border-2 border-secondary/30 rounded-full flex justify-center p-1">
+                <div class="w-1 h-2 bg-secondary rounded-full animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 md:py-32 bg-primary-soft/80 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                
+                <div class="lg:col-span-5 sticky top-28">
+                    <div class="text-xs font-bold text-secondary tracking-widest uppercase mb-3">ABOUT SAMIDARE</div>
+                    <h2 class="text-3xl md:text-4xl font-bold font-serif text-slate-900 tracking-wide leading-tight">
+                        將「和服傳統工藝」與<br>「日本職人精神」極致串聯
+                    </h2>
+                    <div class="w-12 h-1 bg-gradient-to-r from-primary to-secondary my-8"></div>
+                    
+                    <blockquote class="border-l-2 border-secondary pl-4 text-muted font-serif italic text-lg tracking-wide">
+                        「在四季的流轉中，用雙手編織出最純粹的日式美學。」
+                    </blockquote>
+                </div>
+                
+                <div class="lg:col-span-7 glass-card p-8 md:p-12 rounded-3xl shadow-xl shadow-slate-100/40">
+                    <div class="space-y-6 text-slate-600 leading-relaxed font-light tracking-wide text-sm md:text-base">
+                        <p class="text-slate-900 font-medium text-lg">
+                            您好，我是王嬿涵，你也可以叫我『五月雨（Samidare）』。
+                        </p>
+                        <p>
+                            『五月雨』在日文中指的是初夏細密綿長的梅雨，它滋養大地，正如我對視覺美學與傳統工藝的堅持——細膩、沉靜，且充滿生命力。帶著對日本文化的熱愛，我隻身前往日本，展開了一場跨越地域與文化的職人探索之旅。
+                        </p>
+                        <p>
+                            從北海道上富良野薰衣草花田的浪漫盛夏、埼玉蛋糕工廠對品質與效率的極致追求，到最終落腳於千年古都京都，這些跨領域的豐富歷程，鍛鍊出我極高的環境適應力與細膩的款待之心（Omotenashi）。
+                        </p>
+                        <p>
+                            在京都期間，我憑藉著對美感的敏銳度與扎實的實務表現，成功由打工度假簽證翻轉為正式工作簽證，深耕和服產業。我專精於正統和服著裝（着付け）與日式整體髮型設計。無論是典雅的傳統流派，還是融入現代審美的創新造型，我都能精準捕捉顧客的需求，提供從頭到腳的一站式美學服務。
+                        </p>
+                        <p>
+                            累積了兩年的第一線實戰經驗，我將日本職人的嚴謹精神注入個人品牌。未來的日子裡，我將持續秉持這份創新與專業，將最道地的日式美學與感動，帶給每一位信任我的你。
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-4 mt-12 pt-8 border-t border-secondary text-center">
+                        <div>
+                            <div class="text-2xl md:text-3xl font-bold text-secondary">2+</div>
+                            <div class="text-xs text-slate-400 mt-1 tracking-wider">京都一線實戰 (年)</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl md:text-3xl font-bold text-secondary">100%</div>
+                            <div class="text-xs text-slate-400 mt-1 tracking-wider">正統著裝與造型</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl md:text-3xl font-bold text-secondary">Visa</div>
+                            <div class="text-xs text-slate-400 mt-1 tracking-wider">成功翻轉工作簽</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-20">
+                <span class="text-xs font-bold text-secondary tracking-widest uppercase block mb-3">SERVICES MODULE</span>
+                <h2 class="text-3xl md:text-4xl font-bold font-serif text-slate-900 tracking-wide">跨國旅居與文化實踐解決方案</h2>
+                <p class="mt-4 text-muted font-light tracking-wide">不只是出發，更是底氣十足的跨國自我賦能。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="glass-card p-8 md:p-10 rounded-3xl relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-primary-soft flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-13.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3 flex items-center justify-between">
+                        <span>全方位落地賦能</span>
+                        <span class="text-xs font-mono font-normal text-slate-400">Empowerment</span>
+                    </h3>
+                    <p class="text-sm text-slate-500 leading-relaxed font-light">
+                        提供精準的簽證申請攻防、赴日行前核心說明、抵日後的各項行政繁瑣手續與在地生活諮詢。以系統化的步驟，為您建構清晰且極致高效的跨國落地路徑。
+                    </p>
+                </div>
+
+                <div class="glass-card p-8 md:p-10 rounded-3xl relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3 flex items-center justify-between">
+                        <span>職涯策略媒合</span>
+                        <span class="text-xs font-mono font-normal text-slate-400">Career Strategy</span>
+                    </h3>
+                    <p class="text-sm text-slate-500 leading-relaxed font-light">
+                        拒絕盲目摸索。根據您的個人特質與職涯目標，精準媒合日本在地合適的工作地點與優質內容，從根本上提升這趟日本旅程的職涯含金量與未來發展性。
+                    </p>
+                </div>
+
+                <div class="glass-card p-8 md:p-10 rounded-3xl relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-accent/20 flex items-center justify-center mb-6 text-accent group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3 flex items-center justify-between">
+                        <span>文化深度導航</span>
+                        <span class="text-xs font-mono font-normal text-slate-400">Cultural Navigation</span>
+                    </h3>
+                    <p class="text-sm text-slate-500 leading-relaxed font-light">
+                        不流於普通的觀光。融合日本四季獨有的自然風光與地方特色祭典，為您規劃具備文化厚度的深度日本旅遊體驗，親身體悟最正統的在地日常美學。
+                    </p>
+                </div>
+
+                <div class="glass-card p-8 md:p-10 rounded-3xl relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-primary-soft flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3 flex items-center justify-between">
+                        <span>正統和服與髮型美學</span>
+                        <span class="text-xs font-mono font-normal text-slate-400">Aesthetics Mastery</span>
+                    </h3>
+                    <p class="text-sm text-slate-500 leading-relaxed font-light">
+                        由京都正統產業職人親自傳授。帶您深刻掌握正統和服著裝（着付け）技術與細緻的日式髮型教學，將融入傳統與現代審美的精湛技藝完整轉化為個人核心技能。
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="core-products" class="py-12 md:py-16 bg-neutral relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-8">
+                <h3 class="text-sm font-semibold text-slate-500 tracking-wider">核心產品與技術解決方案</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary-soft text-secondary text-lg shadow-sm">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div>
+                        <a href="https://chatgpt.com/g/g-6942ba5b3cac819194129ea76bee98c9-ri-ben-whv-shen-qing-xiao-bang-shou" target="_blank" rel="noopener noreferrer" class="text-lg font-bold text-slate-900 hover:text-blue-600">日本 WHV 申請小幫手</a>
+                        <p class="text-sm text-slate-500 mt-2">協助撰寫與潤飾日本打工度假簽證的理由書與計劃書，製作方為五月雨。</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-100 text-slate-700 text-lg">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div>
+                        <a href="https://chatgpt.com/g/g-6943de6953d88191b464c85e00839eea-ai-wen-zhang-shang-hui-shi-ri-shi-jia-wen-she-ji-gu-wen" target="_blank" rel="noopener noreferrer" class="text-lg font-bold text-slate-900 hover:text-purple-600">AI 紋章上繪師：日式家紋設計顧問</a>
+                        <p class="text-sm text-slate-500 mt-2">以職人視角引導，尋找紋章之心。生成日式紋章風格設計方案與圖案生成提示詞。製作方為五月雨。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dependencies" class="py-16 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                <div>
+                    <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">外部依賴庫 (Dependencies)</p>
+                    <h3 class="mt-3 text-3xl md:text-4xl font-bold text-slate-900">多元社群圖示配置</h3>
+                    <p class="mt-3 text-sm text-slate-500 max-w-2xl">以依賴庫樣式排列社群連結，讓訪客快速找到 LINE、Facebook、LinkedIn 與 GitHub 聯絡入口。</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="rounded-3xl border border-slate-200/80 bg-white p-6 shadow-sm">
+                    <div class="flex flex-wrap items-center gap-3">
+                        <a href="https://aistudy.pse.is/linemdsgroup" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-slate-50 px-4 py-3 text-slate-700 hover:border-blue-500 hover:text-blue-600 transition-all">
+                            <span class="w-9 h-9 flex items-center justify-center rounded-xl bg-white text-2xl text-green-500 shadow-sm"><i class="fab fa-line"></i></span>
+                            <span class="font-medium">LINE</span>
+                        </a>
+                        <a href="https://www.facebook.com/MarketingDataScienceTMR/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-slate-50 px-4 py-3 text-slate-700 hover:border-blue-500 hover:text-blue-600 transition-all">
+                            <span class="w-9 h-9 flex items-center justify-center rounded-xl bg-white text-2xl text-blue-600 shadow-sm"><i class="fab fa-facebook-f"></i></span>
+                            <span class="font-medium">Facebook</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/howardzhong/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-slate-50 px-4 py-3 text-slate-700 hover:border-blue-500 hover:text-blue-600 transition-all">
+                            <span class="w-9 h-9 flex items-center justify-center rounded-xl bg-white text-2xl text-sky-600 shadow-sm"><i class="fab fa-linkedin-in"></i></span>
+                            <span class="font-medium">LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/HowardNTUST" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-slate-50 px-4 py-3 text-slate-700 hover:border-slate-900 hover:text-slate-900 transition-all">
+                            <span class="w-9 h-9 flex items-center justify-center rounded-xl bg-white text-2xl text-slate-900 shadow-sm"><i class="fab fa-github"></i></span>
+                            <span class="font-medium">GitHub</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="glass-card rounded-3xl p-8 border border-secondary/40">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-primary-soft text-secondary flex items-center justify-center text-xl"><i class="fas fa-file-alt"></i></div>
+                        <div>
+                            <p class="text-xs font-semibold uppercase tracking-widest text-secondary">填寫需求表單</p>
+                            <h4 class="mt-2 text-xl font-bold text-slate-900">直接告訴我您的合作需求</h4>
+                        </div>
+                    </div>
+                    <p class="text-sm text-muted leading-relaxed">請將預算、服務範圍、時間規劃、品牌風格或任何期望重點填寫於表單中，讓我能為您提供更精準的專案建議。</p>
+                    <a href="https://forms.gle/sYCrMbGwH9nzrM3q9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center mt-8 px-6 py-3 rounded-full bg-secondary text-white font-semibold tracking-wide text-sm hover:bg-secondary/90 transition-all">
+                        前往填寫需求表單
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="py-24 md:py-32 bg-primary-soft/50 relative overflow-hidden">
+        <div class="bg-glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+        
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <div class="bg-neutral/80 backdrop-blur-xl border border-secondary/30 p-10 md:p-16 rounded-3xl shadow-2xl text-center relative">
+                
+                <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-secondary text-white text-xs px-4 py-1.5 rounded-full tracking-widest font-mono shadow-md">
+                    STRATEGIC PARTNERSHIP
+                </div>
+
+                <h2 class="text-2xl md:text-4xl font-bold font-serif text-slate-900 tracking-wide mb-6 mt-4">
+                    啟動您的日本跨國生存底氣
+                </h2>
+                
+                <p class="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed font-light tracking-wide mb-12">
+                    這不只是一場諮詢，而是一次將你的旅居藍圖，精準對接日本在地資源的策略合作。讓我用嚴謹、可靠的實務經驗，陪伴你建立跨國生存的底氣。
+                </p>
+                
+                <div>
+                    <a href="https://calendar.app.google/ahmVeDbPHypmA5AB9" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center justify-center px-10 py-5 rounded-full bg-accent text-white font-bold tracking-wider text-sm transition-all duration-300 hover:bg-accent/90 shadow-xl shadow-accent/20 hover:shadow-accent/40 hover:-translate-y-1 focus:ring-4 focus:ring-accent/30">
+                        <svg class="w-5 h-5 mr-2 animate-pulse text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        預約專屬策略諮詢
+                    </a>
+                </div>
+                
+                <div class="mt-4 text-xs text-muted font-mono">※ 點擊後將開啟 Google Calendar 預約頁面</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-slate-200/60 bg-white text-center text-xs text-slate-400 tracking-widest font-light">
+        <div class="max-w-7xl mx-auto px-6">
+            <p>© 2026 五月雨 Samidare. All Rights Reserved. Crafted with Japanese Aesthetic & Minimal Luxury.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ----------------------------------------------------
+        // 1. RWD 漢堡選單控制
+        // ----------------------------------------------------
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            } else {
+                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            });
+        });
+
+        // ----------------------------------------------------
+        // 2. JavaScript 精緻打字機效果 (Typewriter)
+        // ----------------------------------------------------
+        const text = "五月雨の灯日和，在雨中找到微光。";
+        const typewriterElement = document.getElementById('typewriter');
+        let index = 0;
+
+        function type() {
+            if (index < text.length) {
+                typewriterElement.textContent += text.charAt(index);
+                index++;
+                setTimeout(type, 140); // 調整打字速度 (微秒)
+            } else {
+                // 打字完成後移除或保持閃爍下游標
+                setTimeout(() => {
+                    typewriterElement.classList.remove('cursor-blink');
+                }, 2000);
+            }
+        }
+        // 確保 DOM 載入後執行
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(type, 500);
+        });
+
+        // ----------------------------------------------------
+        // 3. Hero 按鈕互動反饋 (Hover 狀態變更文字與樣式)
+        // ----------------------------------------------------
+        const heroBtn = document.getElementById('heroBtn');
+        const heroBtnText = document.getElementById('heroBtnText');
+
+        heroBtn.addEventListener('mouseenter', () => {
+            heroBtnText.textContent = "Status: Ready to Connect";
+            heroBtn.style.backgroundImage = 'linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), linear-gradient(135deg, #10b981, #059669)';
+            heroBtn.classList.remove('text-blue-600');
+            heroBtn.classList.add('text-emerald-600', 'bg-emerald-50/40');
+        });
+
+        heroBtn.addEventListener('mouseleave', () => {
+            heroBtnText.textContent = "開啟策略合作藍圖";
+            heroBtn.style.backgroundImage = 'linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), linear-gradient(135deg, #2563eb, #7c3aed)';
+            heroBtn.classList.remove('text-emerald-600', 'bg-emerald-50/40');
+            heroBtn.classList.add('text-blue-600');
+        });
+
+        // ----------------------------------------------------
+        // 4. HTML5 Canvas 高階白色科技網格與連線粒子特效
+        // ----------------------------------------------------
+        const canvas = document.getElementById('cyberBackground');
+        const ctx = canvas.getContext('2d');
+
+        let particles = [];
+        const maxParticles = 45; // 控制粒子密度，不干擾閱讀
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.3; // 緩慢流動
+                this.vy = (Math.random() - 0.5) * 0.3;
+                this.radius = Math.random() * 1.5 + 1;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // 邊界回彈
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(37, 99, 235, 0.15)'; // 極淡科技藍
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < maxParticles; i++) {
+                particles.push(new Particle());
+            }
+        }
+        initParticles();
+
+        function drawLines() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 150) { // 連線距離
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        // 距離越近連線越明顯
+                        ctx.strokeStyle = `rgba(37, 99, 235, ${0.06 * (1 - distance / 150)})`;
+                        ctx.lineWidth = 0.6;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        // 繪製科技 Mesh Grid 網格背景
+        function drawMeshGrid() {
+            const gridSize = 60;
+            ctx.strokeStyle = 'rgba(241, 245, 249, 0.4)'; // 霧面灰非常淡的網格
+            ctx.lineWidth = 0.5;
+
+            for (let x = 0; x < canvas.width; x += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, canvas.height);
+                ctx.stroke();
+            }
+
+            for (let y = 0; y < canvas.height; y += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            drawMeshGrid();
+            
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            
+            drawLines();
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+</body>
+</html>
